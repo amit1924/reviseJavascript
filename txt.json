@@ -1,0 +1,48 @@
+{
+  
+ 
+  "employees": [
+    {
+      "name": "John Doe",
+      "position": "Manager",
+      "age": 35,
+      "salary": 80000,
+      "contact": {
+        "phone": "555-1234",
+        "email": "john.doe@example.com"
+      }
+    },
+    {
+      "name": "Jane Smith",
+      "position": "Developer",
+      "age": 28,
+      "salary": 60000,
+      "contact": {
+        "phone": "555-5678",
+        "email": "jane.smith@example.com"
+      }
+    },
+    {
+      "name": "Jim Brown",
+      "position": "Designer",
+      "age": 30,
+      "salary": 65000,
+      "contact": {
+        "phone": "555-7890",
+        "email": "jim.brown@example.com"
+      }
+    }
+  ],
+  "departments": [
+    {
+      "name": "Engineering",
+      "head": "John Doe",
+      "employees": ["Jane Smith"]
+    },
+    {
+      "name": "Design",
+      "head": "Jim Brown",
+      "employees": ["John Doe"]
+    }
+  ]
+}
