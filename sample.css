@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: black;
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+#div1 {
+  background-color: blue;
+  border: 5px solid white;
+}
+#div2 {
+  background-color: #76df06;
+  border: 5px solid white;
+}
+#div3 {
+  background-color: #e108d2;
+  border: 5px solid white;
+}
+#div4 {
+  background-color: #dadae8;
+  border: 5px solid white;
+}
+#div5 {
+  background-color: rgb(235, 242, 14);
+  border: 5px solid white;
+}
+#div6 {
+  background-color: rgb(250, 10, 10);
+  border: 5px solid white;
+}
+#div7 {
+  background-color: rgb(250, 10, 10);
+  border: 5px solid white;
+}
+#div8 {
+  background-color: rgb(250, 10, 10);
+  border: 5px solid white;
+}
+#div9 {
+  background-color: rgb(250, 10, 10);
+  border: 5px solid white;
+}
+#div10 {
+  background-color: rgb(250, 10, 10);
+  border: 5px solid white;
+}
+
+.flexy {
+  /* display: flex; */
+  /* gap: 200px; */
+  /* height: 200px; */
+  /* margin-top: 10px; */
+  /* flex-direction:column; */
+  /* flex-wrap:wrap; */
+  /* flex:100 */
+  /* flex-flow:column-reverse */
+  /* justify-content:center; */
+  /* align-items: baseline; */
+  /* align-content:center ; */
+  /* overflow: scroll; */
+}
+
+/* /* .div {
+  width: 100px;
+  margin: 10px;
+  flex:1;
+  text-align: center;
+  font-size: 30px;
+} */
+
+#div1 {
+  /* flex-grow: 2;  */
+  /* flex-shrink: 10; */
+  /* flex-basis:200px; */
+  /* flex: 1; */
+}
+#div2 {
+  /* flex-grow: 5; */
+  /* flex-shrink: 10; */
+  /* flex-basis:350px; */
+}
+#div3 {
+  /* flex-grow: 8; */
+  /* flex-shrink: 6; */
+  /* flex: 1; */
+} */

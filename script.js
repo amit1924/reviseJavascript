@@ -408,3 +408,212 @@
 // }
 
 // makeCookie("username", "John Doe", 7);
+
+//callBack  function
+// const fetch =(fetch2,call21)=>{
+//     console.log("Fetching")
+
+//     fetch2()
+//     call21(1)
+
+// }
+
+// function call2(a){
+
+//     console.log(`calling call2 and value of a: ${a}` )
+// }
+
+// fetch( function(){
+//     console.log("callback fetching")
+
+// },call2)
+
+// const http = (res, req) => {
+//   console.log(`response ${res} and request ${req}`);
+//   let request = {
+//     send: function () {
+//       console.log("sending request");
+//     },
+//   };
+
+//   let response = {
+//     recieved: function () {
+//       console.log("recieved request from client");
+//     },
+//   };
+// };
+
+// http(4,5);
+// request.send()
+// response.recieved ()
+
+// const http = (req, res) => {
+//     console.log(`response ${res} and request ${req}`);
+//     let request = {
+//       send: function () {
+//         console.log("sending request");
+//       },
+//     };
+
+//     let response = {
+//       received: function () {
+//         console.log("received request from client");
+//       },
+//     };
+
+//     return { request, response }; // You need to return these objects for them to be accessible outside the function
+//   };
+
+//   const { request, response } = http(4, 5); // Call the http function and destructure the objects
+//   console.log(request);
+
+//   request.send(); // Call the send method
+//   response.received(); // Call the received method
+
+// console.log(5==5) //true
+// console.log(5=='5') //true
+// console.log(5===5) //true
+// console.log(5==='5') //false
+// console.log(5!='5') //false
+// console.log(5!=5) //false
+// console.log(5!==5) //false
+// console.log(5!=='5') //true
+
+// let anchor =document.createElement('a')
+// console.log(anchor.href ="https://www.google.com")
+
+//append child elements
+// let div = document.getElementById('div')
+// let anchor =document.createElement('a')
+// let childElem=div.appendChild(anchor)
+
+// console.log(childElem.href ="https://www.google.com")
+
+//array
+
+// array = ["a", "b", "c,d", "e", "f"];
+// console.log(array.length);
+// console.log(array.push("z"));
+// console.log(array);
+
+// array.forEach((element) => {
+//   console.log(element);
+// });
+
+// array.map((element) => {
+//   console.log(element);
+// });
+
+// for (items in array) {
+//   console.log(items);
+// }
+// for (let i = 0; i < array.length; i++) {
+//   console.log(i);
+// }
+
+// let [array1, array2, array3, array4, array5] = array;
+// console.log(array2);
+// console.log((array3 = array));
+
+// console.log(document.body)
+// console.log(document.body.parentElement)
+// console.log(document.body.parentNode)
+// console.log(document.body.childElementCount)
+// console.log(document.body.previousElementSibling)
+// console.log(document.body.parentElementchildren)
+
+// console.log(document.body.nextSibling)
+// console.log(document.body.childNodes)
+// console.log(document.getElementById('div').nextElementSibling)
+// console.log(document.getElementById('div').children)
+// console.log(document.getElementById('div').childNodes)
+// console.log(document.getElementById('div').innerText="i will delete div")
+// // console.log(document.getElementById('div').classList="divjoin")
+
+
+//onchnage event
+// function handleInputChange() {
+//   const inputElement = document.getElementById('myInput');
+//   const outputElement = document.getElementById('output');
+//   const inputValue = inputElement.value;
+//   console.log(inputValue)
+
+//   outputElement.textContent = `Input changed to: ${inputValue}`;
+// }
+
+// function handleTextareaChange() {
+//   const textareaElement = document.getElementById("myTextarea");
+//   const outputElement = document.getElementById("output");
+//   const textareaValue = textareaElement.value;
+
+//   outputElement.textContent = `Textarea content changed to: ${textareaValue}`;
+// }
+
+//Displaying Input value is inside the webpage
+
+// function displayInputValue() {
+//   // Get the input elements by their IDs
+//   let nameInputElement = document.getElementById("nameInput");
+//   let emailInputElement = document.getElementById("emailInput");
+
+//   let outputElement = document.getElementById("output");
+
+//   let nameValue = nameInputElement.value;
+//   let emailValue = emailInputElement.value;
+
+//   outputElement.innerHTML = `Name is ${nameValue} and Email is ${emailValue}`
+//   // Prevent the form from actually submitting, as this is just a demonstration
+//   return false;
+// }
+
+//Focus Event
+// function onFocus(message) {
+//   const outputElement = document.getElementById("output");
+//   // outputElement.innerHTML =message
+//   // outputElement.innerText =message
+//   outputElement.textContent=message
+// }
+
+
+//Loops
+// let btn = document.getElementById("btn");
+// let count = 10; // Move count outside the event listener to increment it after every click
+
+// btn.addEventListener("click", () => {
+//   let i = 0;
+//   while (i < count) {
+//     console.log(count + i);
+//     i++;
+//   }
+//   count++; // Increment count after every click
+// });
+
+// console.log("Who will win this event race")
+// let btn = document.getElementById("btn");
+// setTimeout(() => {
+//     btn.addEventListener("click", () => {
+//         alert("after button clck i will run ")
+//     })
+//     console.log("it will run after few seconds")
+// },5000)
+
+// console.log("3rd person wins")
+
+//Miscllaneous Code
+// console.log(Math.round(Math.random()))
+// console.log(Math.floor())
+// console.log(Math.floor(Math.random()*5))
+// console.log(Math.round(0.5))
+// console.log(Math.floor(0.5))
+
+// let char = "zasdfgrt458dgh"
+// console.log(char.charAt(3))
+// let newPassword="Amit"
+// // console.log(char.length)
+// const randomRound = Math.round(Math.random() * char.length);
+// const randomFloor = Math.floor(Math.random() * char.length);
+// // console.log(randomRound )
+// // console.log(randomFloor)
+
+//  newPassword =newPassword + char.charAt(randomFloor)
+// console.log(newPassword)
