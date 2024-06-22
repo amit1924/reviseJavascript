@@ -483,4 +483,4 @@
 
 // dog.makeSound();
 
-cat.displayInfo();
+// cat.displayInfo();

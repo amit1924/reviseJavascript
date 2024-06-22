@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data</title>
+</head>
+<body>
+    <div>
+        <form id="myForm" >
+            <input type="text" name="username" placeholder="Username">
+            <input type="email" name="email" placeholder="Email">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit",async (e)=>{
+e.preventDefault();
+
+const formData
+= new FormData(e.target);     
+
+console.log(`Form data: ${formData}`)
+
+ // Append Data to Form
+formData.append('age','30')
+formData.append('gender','male')
+
+for (const [key,value] of formData.entries( )){
+    console.log(` ${key}: ${value}`);
+}
+
+
+const response = {
+    message: 'Form data received',
+    data: Object.fromEntries(formData.entries())
+};
+document.body.innerHTML = ` ${response.message} `;
+console.log('Success:', response);
+
+})
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

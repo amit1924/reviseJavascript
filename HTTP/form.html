@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Action Example</title>
+</head>
+<body>
+    <form >
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <button >Submit</button>
+    </form>
+
+    <script>
+        const form =document.querySelector('form');
+     const btn =document.querySelector("button")
+     console.log(btn);
+     btn.addEventListener("click",(e)=>{
+       e.preventDefault();
+
+       const formData =new FormData(form)
+       const newFormData ={}
+       formData.forEach((value,key)=>{
+        newFormData[key] = value
+
+        
+       })
+
+       localStorage.setItem('formdata',JSON.stringify(newFormData))
+
+       window.location.href ='empty.html'
+    
+     })
+    </script>
+</body>
+</html>
