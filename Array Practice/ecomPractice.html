@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods in JavaScript</title>
+</head>
+<body>
+    <div>
+        <h1>Array Methods in JavaScript</h1>
+    </div>
+    <script>
+        // Initial array to hold cart items
+        const cart =[];
+
+        // Initial array of products (carts)
+        const carts =[
+            {
+                id: 1,
+                Brand: "Samsung",
+                Price: 1000
+            },
+            {
+                id: 2,
+                Brand: "Apple",
+                Price: 5000
+            },
+            {
+                id: 3,
+                Brand: "One plus",
+                Price: 3000
+            },
+        ];
+
+        // Copying items from carts to cart array using forEach
+        carts.forEach((item) => {
+            cart.push(item);
+        });
+
+        // Displaying cart items in the DOM using map
+        cart.map((item) => {
+            const div = document.createElement("div");
+            div.innerHTML = `<h1>${item.id} ${item.Brand} ${item.Price}</h1>`;
+            document.body.appendChild(div);
+        });
+
+        // Filtering out items from cart with id !== 2 using filter
+        const filteredCart = cart.filter((item) => {
+            return item.id !== 2;
+        });
+
+        // Displaying filtered cart items in the DOM using map
+        filteredCart.map((item) => {
+            const div = document.createElement("div");
+            div.innerHTML = `<div>${item.id} ${item.Brand} ${item.Price}</div>`;
+            document.body.appendChild(div);
+        });
+
+        // Calculating total price of items in cart using reduce
+        const totalPrice = cart.reduce((accumulator, item) => {
+            return accumulator + item.Price;
+        }, 0);
+
+        console.log(`Total Price after adding all products to cart: ${totalPrice}`); // Output: Total Price after adding all products to cart: 9000
+
+        // Finding a particular item in cart using find
+        const foundItem = cart.find((item) => {
+            return item.id === 2;
+        });
+
+        console.log("Found item:", foundItem); // Output: Found item: { id: 2, Brand: "Apple", Price: 5000 }
+
+        // Finding index of a particular item in cart using findIndex
+        const foundIndex = cart.findIndex((item) => {
+            return item.id === 2;
+        });
+
+        console.log("Found Index:", foundIndex); // Output: Found Index: 1(true)
+
+        // Checking if any item's Brand includes "samsung" using map and includes
+        cart.map((item) => {
+            const searchedProduct = item.Brand.toLowerCase().includes("samsung");
+            console.log(searchedProduct); // Output: true, false, false (for Samsung, Apple, One plus respectively)
+        });
+
+        // Checking if there are any items with Price > 200 using some
+        const expensiveProducts = cart.some((item) => {
+            return item.Price > 200;
+        });
+
+        console.log("Expensive Items greater than 200 exist in cart or not: " + expensiveProducts); // Output: Expensive Items greater than 200 exist in cart or not: true
+
+        // Checking if every item has Price > 50 using every
+        const everyExpensiveProducts = cart.every((item) => {
+            return item.Price > 50;
+        });
+
+        console.log("Expensive Items greater than 50 exist in cart or not: " + everyExpensiveProducts); // Output: Expensive Items greater than 50 exist in cart or not: true
+
+        // Sorting cart items by Price in increasing order using sort
+        const sortByPrice = cart.sort((a, b) => {
+            return a.Price - b.Price;
+        });
+
+        console.log("Cart items sorted by price in increasing order:", sortByPrice); // Output: Cart items sorted by price in increasing order: [{ id: 1, Brand: "Samsung", Price: 1000 }, { id: 3, Brand: "One plus", Price: 3000 }, { id: 2, Brand: "Apple", Price: 5000 }]
+
+        // Example of using splice to remove an item from cart
+        const removeItemById = (id) => {
+            const indexToRemove = cart.findIndex(item => item.id === id);
+            if (indexToRemove !== -1) {
+                cart.splice(indexToRemove, 1); // Remove 1 element from indexToRemove
+            }
+        };
+
+        // Remove item with id 2
+        removeItemById(2);
+
+        console.log("Cart after removing item with id 2:", cart); // Output: Cart after removing item with id 2: [{ id: 1, Brand: "Samsung", Price: 1000 }, { id: 3, Brand: "One plus", Price: 3000 }]
+
+        // Shallow copy of cart using slice method
+        const slicedCart = cart.slice(0, 1);
+        console.log("Sliced cart:", slicedCart); // Output: Sliced cart: [{ id: 1, Brand: "Samsung", Price: 1000 }]
+
+        // Example of using join to concatenate Brand values into a single string
+        const joinBrand = cart.map((item) => {
+            return item.Brand;
+        }).join(", ");
+
+        console.log("Joined Brands:", joinBrand); // Output: Joined Brands: Samsung, One plus
+    </script>
+</body>
+</html>

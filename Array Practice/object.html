@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    
+    <script>
+        const returnObj =(name,age)=>{
+          return{
+            name:name,
+            age:age,
+          }
+        }
+       person =returnObj('amit',20)
+       console.log(person.name);
+       console.log(person.age);
+
+
+
+
+       // Adding objects into any array 
+const store ={
+    products:[]
+}
+
+store.products.push({id:1, brand:"apple", price:200})
+store.products.push({id:2, brand:"samsung", price:400})
+
+console.log(store.products);
+    </script>
+</body>
+</html>
