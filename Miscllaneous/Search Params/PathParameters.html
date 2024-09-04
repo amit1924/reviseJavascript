@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract Path Parameter</title>
+</head>
+<body>
+    <h1>Extract Path Parameter Example</h1>
+    <div id="output"></div>
+    <script>
+const output = document.getElementById("output");
+
+        // Define the URL with path parameter
+        const url = 'http://localhost:5000/1';
+
+        // Create a URL object
+        const urlObj = new URL(url);
+
+        // Get the pathname
+        const pathname = urlObj.pathname;
+
+        // Extract the path parameter (assuming single segment path)
+        const pathParam = pathname.split('/').pop(); // '1'
+
+       output.textContent="path param:"+pathParam
+    </script>
+</body>
+</html>

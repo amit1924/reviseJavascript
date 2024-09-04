@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data Destructuring</title>
+</head>
+<body>
+    <h1>Form Data Destructuring Example</h1>
+    <form id="myForm" action="/submit" method="get">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <h2 id="output"></h2>
+
+    <script>
+
+        const output =document.getElementById("output")
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Create a URLSearchParams object from the form data
+            const formData = new URLSearchParams(new FormData(event.target));
+
+            // Convert URLSearchParams to a plain object
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+
+            // Destructuring the formObject
+            const { username, age } = formObject;
+
+            console.log('Username:', username); 
+            console.log('Age:', age);    
+        
+            
+
+            output.textContent=`username="${username}"&age="${age}" `
+        });
+
+    </script>
+</body>
+</html>

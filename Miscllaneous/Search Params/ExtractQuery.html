@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract Query Parameters</title>
+</head>
+<body>
+    <h1>Extract Query Parameters Example</h1>
+    <h2 id="output"></h2>
+    <script>
+
+        const output = document.getElementById("output");
+        // Define the URL with query parameters
+        const url = 'http://localhost:5000?name=amit&age=25';
+
+        // Create a URL object
+        const urlObj = new URL(url);
+
+        // Get query parameters
+        const params = new URLSearchParams(urlObj.search);
+
+        // Extract parameters
+        const name = params.get('name'); // 'amit'
+        const age = params.get('age');   // '25'
+
+        console.log('Name:', name); // Output: amit
+        console.log('Age:', age);   // Output: 25
+
+        output.textContent=`name="${name}" age="${age}`
+    </script>
+</body>
+</html>

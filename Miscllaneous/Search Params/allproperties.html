@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URLSearchParams Methods</title>
+</head>
+<body>
+    <h1>URLSearchParams Properties and Methods</h1>
+    
+    <h2>1. Properties</h2>
+    <p><strong>Internally managed properties:</strong> `URLSearchParams` maintains the query parameters as an iterable collection of key-value pairs, but there are no direct properties that can be accessed like traditional properties. Instead, methods are used to interact with this internal data.</p>
+
+    <h2>2. Methods</h2>
+    
+    <h3>.append(name, value)</h3>
+    <p>Adds a new value or appends to an existing key.</p>
+    <pre>
+const params = new URLSearchParams();
+params.append('key1', 'value1');
+params.append('key1', 'value2');
+console.log(params.toString()); // Output: "key1=value1&key1=value2"
+    </pre>
+    
+    <h3>.delete(name)</h3>
+    <p>Removes a key and its values from the `URLSearchParams` object.</p>
+    <pre>
+const params = new URLSearchParams('key1=value1&key2=value2');
+params.delete('key1');
+console.log(params.toString()); // Output: "key2=value2"
+    </pre>
+
+    <h3>.get(name)</h3>
+    <p>Returns the first value associated with the given key.</p>
+    <pre>
+const params = new URLSearchParams('key1=value1&key2=value2');
+console.log(params.get('key1')); // Output: "value1"
+    </pre>
+
+    <h3>.getAll(name)</h3>
+    <p>Returns all values associated with the given key as an array.</p>
+    <pre>
+const params = new URLSearchParams('key1=value1&key1=value2');
+console.log(params.getAll('key1')); // Output: ["value1", "value2"]
+    </pre>
+
+    <h3>.has(name)</h3>
+    <p>Returns `true` if the given key exists, otherwise `false`.</p>
+    <pre>
+const params = new URLSearchParams('key1=value1');
+console.log(params.has('key1')); // Output: true
+console.log(params.has('key2')); // Output: false
+    </pre>
+
+    <h3>.set(name, value)</h3>
+    <p>Sets the value associated with the given key. If the key already exists, its value is updated.</p>
+    <pre>
+const params = new URLSearchParams('key1=value1');
+params.set('key1', 'newValue');
+console.log(params.toString()); // Output: "key1=newValue"
+    </pre>
+
+    <h3>.sort()</h3>
+    <p>Sorts the parameters by their keys in ascending order.</p>
+    <pre>
+const params = new URLSearchParams('b=valueB&a=valueA');
+params.sort();
+console.log(params.toString()); // Output: "a=valueA&b=valueB"
+    </pre>
+
+    <h3>.toString()</h3>
+    <p>Converts the `URLSearchParams` object to a query string.</p>
+    <pre>
+const params = new URLSearchParams();
+params.set('key1', 'value1');
+params.set('key2', 'value2');
+console.log(params.toString()); // Output: "key1=value1&key2=value2"
+    </pre>
+
+    <h2>Example Code:</h2>
+    <pre>
+const params = new URLSearchParams('name=John&age=30');
+
+// Append a new value to an existing key
+params.append('name', 'Doe');
+console.log('After append:', params.toString());
+
+// Set a new value for an existing key
+params.set('age', '31');
+console.log('After set:', params.toString());
+
+// Get a value for a key
+console.log('Get name:', params.get('name'));
+
+// Get all values for a key
+console.log('Get all names:', params.getAll('name'));
+
+// Check if a key exists
+console.log('Has age:', params.has('age'));
+console.log('Has gender:', params.has('gender'));
+
+// Delete a key
+params.delete('age');
+console.log('After delete:', params.toString());
+
+// Sort the parameters
+params.sort();
+console.log('After sort:', params.toString());
+    </pre>
+
+</body>
+</html>

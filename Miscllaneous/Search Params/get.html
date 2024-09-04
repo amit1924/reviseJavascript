@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data Example</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form id="loginForm" method="GET" action="/login">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit">Login</button>
+    </form>
+    <h2>Query Parameters:</h2>
+    <pre id="output"></pre>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Serialize the form data into a query string
+            const formData = new URLSearchParams(new FormData(event.target)).toString();
+
+            // Display the query string
+            document.getElementById('output').textContent = formData;
+
+            // Parse the query string back into an object
+            const params = new URLSearchParams(formData);
+
+console.log(`Query string${params.toString()}`);
+
+            const username = params.get('username');
+            const password = params.get('password');
+            console.log('Username:', username);
+            console.log('Password:', password);
+            alert(`username: ${username}, password: ${password}`);
+        });
+    </script>
+</body>
+</html>

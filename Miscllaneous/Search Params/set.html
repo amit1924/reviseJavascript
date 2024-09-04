@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Query Parameters</title>
+</head>
+<body>
+    <h1>Update Query Parameters</h1>
+    <form id="updateForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        
+        <button type="submit">Update URL</button>
+    </form>
+    <h2>Updated URL:</h2>
+    <pre id="output"></pre>
+    <script>
+        document.getElementById('updateForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Collect form data
+            const formData = new FormData(event.target);
+            const params = new URLSearchParams();
+
+            // Set new query parameters
+            formData.forEach((value, key) => {
+                params.set(key, value);
+            });
+
+            // Create the updated URL
+            const baseUrl = window.location.href.split('?')[0]; // Remove existing query string if any
+            console.log(`Base URL: ${baseUrl}`);//Base URL: http://127.0.0.1:5500/Search%20Params/set.html
+            const updatedUrl = `${baseUrl}?${params.toString()}`;
+            console.log(`Updated URL: ${updatedUrl}`);//Updated URL: http://127.0.0.1:5500/Search%20Params/set.html?username=arsh&age=26
+
+            // Display the updated URL
+            document.getElementById('output').textContent = updatedUrl;
+
+            // Optionally, update the browser's URL
+            window.history.pushState({}, '', updatedUrl);
+        });
+    </script>
+</body>
+</html>

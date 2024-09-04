@@ -1,0 +1,3 @@
+ID and for Attribute:
+
+The id of the input field is "name", and the for attribute in the label is also "name". This means when the user clicks on the label "Name:", the cursor automatically moves to the input field with the id "name". This improves the usability of the form.
