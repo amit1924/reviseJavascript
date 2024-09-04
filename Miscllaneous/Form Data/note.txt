@@ -1,0 +1,76 @@
+ formData.forEach((value,key)=>{
+                console.log(`Key: ${key}, Value: ${value}`);
+                if (key === "profilePic") {
+                    output[key] = value.name; // Displaying the file name
+                } else {
+                    output[key] = value;
+                }
+            })
+
+Solution:
+Key: username, Value: john_doe
+Key: email, Value: john@example.com
+Key: password, Value: password123
+Key: profilePic, Value: profile.jpg
+
+
+key: This corresponds to the name attribute of the form field (e.g., "username", "email", "password", "profilePic").
+value: This is the data entered or selected by the user. For text fields, it's the text; for file inputs, it's a File object.
+
+
+///////////////////////////////////////////
+When you create a FormData object, it uses the name attributes of the form elements to build key-value pairs. Without name, the FormData object would have no way of identifying and storing the form field data.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+The choice between new FormData(event.target) and new FormData(form) depends on the context in which you are creating the FormData object and the scope of the form element.
+
+new FormData(event.target)
+Context: event.target refers to the element that triggered the event. In the context of a form submission event, event.target is the form element itself.
+Usage: This is a convenient way to create a FormData object directly from the event target without needing to explicitly reference the form element by its ID.
+Example:
+
+
+document.getElementById('signupForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    // Create FormData from the event target (which is the form element)
+    const formData = new FormData(event.target);
+    
+    // Now you can use formData as needed
+});
+
+
+new FormData(form)
+Context: form here is a reference to the form element obtained through methods like document.getElementById() or other DOM querying methods.
+Usage: This method is more explicit and allows you to create a FormData object from a known form element, which can be useful if you have multiple forms or need to reference the form in different parts of your code.
+Example:
+
+
+const form = document.getElementById('signupForm');
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    // Create FormData from the form element reference
+    const formData = new FormData(form);
+    
+    // Now you can use formData as needed
+});
+Comparison
+Direct Use of event.target:
+
+Pros:
+Convenient and less code.
+Automatically refers to the form that triggered the event.
+Cons:
+Less explicit, which might make the code harder to understand in complex scenarios with multiple forms or event handlers.
+Explicit Form Reference:
+
+Pros:
+More explicit, which can improve code readability and maintainability.
+Useful when working with multiple forms or when the form element is referenced in multiple places in the code.
+Cons:
+Requires an additional line of code to get the form element.
+Conclusion
+Both methods are valid and the choice between them depends on the specific requirements and context of your application. If you are handling a single form submission, using event.target is often simpler and more concise. For more complex scenarios where you need to reference the form element in different parts of your code, using new FormData(form) may be more appropriate.

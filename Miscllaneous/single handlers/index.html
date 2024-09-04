@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Handler Example</title>
+</head>
+<body>
+    <h1>User Information</h1>
+    <form id="userForm">
+        <input type="text" name="firstName" placeholder="First Name" /><br />
+        <input type="text" name="lastName" placeholder="Last Name" /><br />
+        <input type="email" name="email" placeholder="Email" /><br />
+    </form>
+
+    <h2>Updated User Object:</h2>
+    <pre id="output"></pre>
+
+    <script>
+        const user = {
+            firstName: "",
+            lastName: "",
+            email: ""
+        };
+
+        // Single handler for all inputs
+        document.getElementById("userForm").addEventListener("input", (event) => {
+            const { name, value } = event.target;
+            user[name] = value;
+            updateOutput();
+        });
+
+        function updateOutput() {
+            document.getElementById("output").textContent = JSON.stringify(user, null, 2);
+        }
+    </script>
+</body>
+</html>

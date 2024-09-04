@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event and Target Example</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('myForm').addEventListener('input', (event) => {
+            // `event` represents the input event
+            // `event.target` represents the input field where the change occurred
+            console.log('Event:', event);
+            console.log('Target:', event.target);
+
+            // Displaying the current value of the input field
+            alert('Current input value: ' + event.target.value);
+        });
+    </script>
+</body>
+</html>

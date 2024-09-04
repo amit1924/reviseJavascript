@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event and Target Example</title>
+</head>
+<body>
+    <button id="myButton">Click Me</button>
+
+    <script>
+        const myButton =document.getElementById("myButton");
+        document.getElementById('myButton').addEventListener('click', (event) => {
+            // `event` represents the click event
+            // `event.target` represents the button that was clicked
+            console.log('Event:', event);
+            console.log('Target:', event.target);
+
+            // Displaying the text content of the clicked button
+            alert('Button clicked: ' + event.target.textContent);
+            myButton.textContent="click me now"
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- event: Represents the action that occurred (e.g., click, input change). It contains useful information like the type of event and additional details.
+event.target: Refers to the specific element that triggered the event. It is useful for identifying which element was interacted with and accessing its properties. -->

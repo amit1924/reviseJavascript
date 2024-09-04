@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Separate Handlers Example</title>
+</head>
+<body>
+    <h1>User Information</h1>
+    <form id="userForm">
+        <input type="text" id="firstName" placeholder="First Name" /><br />
+        <input type="text" id="lastName" placeholder="Last Name" /><br />
+        <input type="email" id="email" placeholder="Email" /><br />
+    </form>
+
+    <h2>Updated User Object:</h2>
+    <pre id="output"></pre>
+
+    <script>
+        const user = {
+            firstName: "",
+            lastName: "",
+            email: ""
+        };
+
+        // Separate handlers for each input
+        document.getElementById("firstName").addEventListener("input", (event) => {
+            user.firstName = event.target.value;
+            updateOutput();
+        });
+
+        document.getElementById("lastName").addEventListener("input", (event) => {
+            user.lastName = event.target.value;
+            updateOutput();
+        });
+
+        document.getElementById("email").addEventListener("input", (event) => {
+            user.email = event.target.value;
+            updateOutput();
+        });
+
+        function updateOutput() {
+            document.getElementById("output").textContent = JSON.stringify(user, null, 2);
+        }
+    </script>
+</body>
+</html>

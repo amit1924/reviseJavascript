@@ -1,0 +1,34 @@
+When user.name and user[name] Are Different:
+
+Dynamic Property Access:
+Dot notation (user.name) always accesses the property literally named "name".
+
+Bracket notation (user[name]) accesses the property named according to the value of the name variable.
+
+Example:
+
+
+const user = {
+  firstName: "John",
+  lastName: "Doe",
+};
+
+const name = "firstName";
+
+console.log(user.name);   // Output: undefined (because there's no "name" property)
+
+console.log(user[name]);  // Output: John (because name is "firstName")
+
+Here, user.name and user[name] are different because name is a variable, and user[name] is accessing user.firstName.
+
+Dot Notation (user.name):
+
+Accesses the property literally named "name".
+Simpler and often used when you know the exact property name.
+
+
+Bracket Notation (user[name]):
+
+Accesses a property using the value of the name variable, allowing dynamic property access.
+More flexible and necessary when the property name is not known until runtime.
+In summary, while user.name and user["name"] are the same when accessing a literal property called "name", user[name] is different when name is a variable containing a property name.

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data Properties</title>
+</head>
+<body>
+    <form id="signupForm">
+        <input type="text" name="username" value="john_doe">
+        <input type="file" name="profilePic">
+        <button type="submit">Submit</button>
+    </form>
+    
+    <script>
+        const form = document.getElementById('signupForm');
+        const formData = new FormData(form);
+    
+        // Append a new field
+        formData.append('age', '30');
+    
+        // Get a value
+        console.log(formData.get('username')); // Outputs: john_doe
+    
+        // Get all values (useful for fields with multiple values)
+        console.log(formData.getAll('username')); // Outputs: ["john_doe"]
+    
+        // Check if a field exists
+        console.log(formData.has('profilePic')); // Outputs: true
+    
+        // Delete a field
+        formData.delete('age');
+    
+        // Set a new value
+        formData.set('username', 'jane_doe');
+    </script>
+    
+</body>
+</html>

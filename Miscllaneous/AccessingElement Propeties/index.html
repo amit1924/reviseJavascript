@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Properties Example</title>
+</head>
+<body>
+    <input id="username" name="username" value="JohnDoe" type="text">
+    <button id="myButton" class="btn">Click Me</button>
+    <p id="myParagraph">Hello World</p>
+
+    <script>
+        // Accessing properties of the input element
+        const input = document.getElementById('username');
+        console.log('ID:', input.id);           // Output: "username"
+        console.log('Name:', input.name);       // Output: "username"
+        console.log('Value:', input.value);     // Output: "JohnDoe"
+
+        // Accessing properties of the button element
+        const button = document.getElementById('myButton');
+        console.log('Class Name:', button.className); // Output: "btn"
+
+        // Accessing properties of the paragraph element
+        const paragraph = document.getElementById('myParagraph');
+        console.log('Text Content:', paragraph.textContent); // Output: "Hello World"
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data</title>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <form id="signupForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="profilePic">Profile Picture:</label>
+    <input type="file" id="profilePic" name="profilePic"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Form Data:</h2>
+    <pre id="output"></pre>
+
+    <script>
+        document.getElementById("signupForm").addEventListener("submit",(event)=>{
+            event.preventDefault();
+
+            const formData =new FormData(event.target);
+
+            const output={}
+
+            formData.forEach((value,key)=>{
+                console.log(`Key: ${key}, Value: ${value}`);
+                if (key === "profilePic") {
+                    output[key] = value.name; // Displaying the file name
+                } else {
+                    output[key] = value;
+                }
+            })
+
+            document.getElementById("output").textContent=JSON.stringify(output,null,2)
+        })
+    </script>
+</body>
+</html>
